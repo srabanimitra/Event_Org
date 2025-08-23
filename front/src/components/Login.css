@@ -13,7 +13,7 @@ html, body {
   position: fixed; /* lock background to viewport */
   top: 0;
   left: 0;
-  width: 100%;
+  width: 120wh;
   height: 100vh;
 
   /* animated gradient */
