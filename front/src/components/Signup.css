@@ -1,0 +1,90 @@
+/* Signup.css */
+
+.container {
+  width: 400px;
+  margin: 60px auto;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.header {
+  margin-bottom: 20px;
+}
+
+.text {
+  font-size: 28px;
+  font-weight: bold;
+  color: #1e3a8a; /* Deep blue */
+}
+
+.underline {
+  width: 60px;
+  height: 4px;
+  background: #ef4444; /* Red underline */
+  border-radius: 5px;
+  margin: 8px auto 0;
+}
+
+.inputs {
+  margin-top: 20px;
+}
+
+.input {
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+  padding: 10px 15px;
+  background: #f3f4f6; /* light grey background */
+  border-radius: 10px;
+}
+
+.input img {
+  width: 20px;
+  margin-right: 10px;
+}
+
+.input input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 16px;
+  padding: 5px;
+}
+
+.have-account {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.have-account a {
+  color: #1d4ed8;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.have-account a:hover {
+  text-decoration: underline;
+}
+
+.submit-container {
+  margin-top: 25px;
+}
+
+.submit {
+  background: #2563eb; /* blue */
+  color: white;
+  padding: 12px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.submit:hover {
+  background: #1e40af; /* darker blue */
+}
