@@ -1,0 +1,30 @@
+.gallery-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.gallery-container h1 {
+  margin-bottom: 20px; 
+}
+
+.gallery-grid {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.club-card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 180px;
+  cursor: pointer;
+  padding: 10px;
+  transition: 0.3s;
+}
+.club-card:hover {
+  background: #f0f0f0;
+}
+.club-card img {
+  width: 100%;
+  border-radius: 10px;
+}
