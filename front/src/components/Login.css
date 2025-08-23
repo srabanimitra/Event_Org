@@ -1,0 +1,121 @@
+/* Signup.css */
+
+.container {
+  width: 400px;
+  margin: 60px auto;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.header {
+  margin-bottom: 20px;
+}
+
+.text {
+  font-size: 28px;
+  font-weight: bold;
+  color: #1e3a8a; /* Deep blue */
+}
+
+.underline {
+  width: 60px;
+  height: 4px;
+  background: #ef4444; /* Red underline */
+  border-radius: 5px;
+  margin: 8px auto 0;
+}
+
+.inputs {
+  margin-top: 20px;
+}
+
+.input {
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+  padding: 10px 15px;
+  background: #f3f4f6; /* light grey background */
+  border-radius: 10px;
+}
+
+.input img {
+  width: 20px;
+  margin-right: 10px;
+}
+
+.input input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 16px;
+  padding: 5px;
+}
+
+.have-account {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.have-account a {
+  color: #1d4ed8;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.have-account a:hover {
+  text-decoration: underline;
+}
+
+.submit-container {
+  margin-top: 25px;
+}
+
+.submit {
+  background: #2563eb; /* blue */
+  color: white;
+  padding: 12px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.submit:hover {
+  background: #1e40af; /* darker blue */
+}
+
+.role-dropdown {
+  width: 100%;          /* Full width of the container */
+  max-width: 400px;     /* Optional: limit the maximum width */
+  padding: 12px 20px;   /* More padding for a larger box */
+  font-size: 16px;
+  border: 2px solid #cbd5e1;
+  border-radius: 10px;
+  background-color: #f3f4f6;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-align: left;
+  color: #000;
+  transition: all 0.3s ease;
+}
+
+/* Hover and focus effects */
+.role-dropdown:hover {
+  border-color: #2563eb;
+}
+
+.role-dropdown:focus {
+  border-color: #1e40af;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+.role-dropdown option {
+  padding: 10px;
+}
