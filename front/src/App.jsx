@@ -7,6 +7,7 @@ import './App.css';
 import Login from "./components/login";
 import Signup from "./components/SignUp";
 import AdminLogin from "./components/AdminLogin";
+import Profile from "./components/Profile";
 function App() {
   return (
     <Router>
@@ -23,7 +24,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/contact" element={<h1>Contact Page</h1>} />
-          <Route path="/profile" element={<h1>Profile Page</h1>} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/sponsor" element={<h1>Sponsor Page</h1>} />
           <Route path="/gallery" element={<h1>Gallery Page</h1>} />
           <Route path="/" element={<h1>Welcome to Eventify 🎉</h1>} />
