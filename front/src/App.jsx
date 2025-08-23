@@ -2,9 +2,13 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/footer";
+import Home from "./views/Home";
 import './App.css';
 import Login from "./components/login";
 import Signup from "./components/SignUp";
+import AdminLogin from "./components/AdminLogin";
+
+
 
 function App() {
   return (
@@ -15,7 +19,7 @@ function App() {
       {/* Page Content */}
       <main style={{ paddingTop: "60px", minHeight: "80vh" }}>
         <Routes>
-
+          <Route path="/" element={<Home />} />
           <Route path="/events" element={<h1>Events Page</h1>} />
           <Route path="/featured" element={<h1>Featured Page</h1>} />
           <Route path="/admin" element={<AdminLogin />} />
