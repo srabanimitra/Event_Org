@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./AdminLogin.css";
 
 export default function AdminLogin() {
     const [registerId, setRegisterId] = useState("");
     const [password, setPassword] = useState("");
     const [message, setMessage] = useState("");
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -26,6 +28,12 @@ export default function AdminLogin() {
 
             if (data.success) {
                 setMessage("✅ Login Successful!");
+
+                // Save login session
+                localStorage.setItem("adminLoggedIn", "true");
+                
+                // Redirect to admin dashboard after login
+                navigate("/admin-dashboard");
             } else {
                 setMessage("❌ " + data.message);
             }
@@ -45,6 +53,7 @@ export default function AdminLogin() {
                         type="text"
                         value={registerId}
                         onChange={(e) => setRegisterId(e.target.value)}
+                        required
                     />
 
                     <label>Password</label>
@@ -52,6 +61,7 @@ export default function AdminLogin() {
                         type="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
+                        required
                     />
 
                     <button type="submit">Login</button>
