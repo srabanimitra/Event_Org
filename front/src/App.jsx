@@ -4,11 +4,11 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/footer";
 import Home from "./views/Home";
 import './App.css';
-import Login from "./components/login";
 import Signup from "./components/SignUp";
 import AdminLogin from "./components/AdminLogin";
 import Profile from "./components/Profile";
 import AdminDashboard from "./views/AdminDashboard";
+import Login from "./components/Login";
 function App() {
   return (
     <Router>
@@ -16,7 +16,7 @@ function App() {
       <Navbar />
 
       {/* Page Content */}
-      <main style={{ paddingTop: "60px", minHeight: "80vh" }}>
+      <main style={{ paddingTop: "10px", minHeight: "80vh" }}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/events" element={<h1>Events Page</h1>} />
@@ -24,6 +24,7 @@ function App() {
           <Route path="/admin" element={<AdminLogin />} />
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
           <Route path="/login" element={<Login />} />
+
           <Route path="/signup" element={<Signup />} />
           <Route path="/contact" element={<h1>Contact Page</h1>} />
           <Route path="/profile" element={<Profile />} />
