@@ -8,6 +8,7 @@ import Login from "./components/login";
 import Signup from "./components/SignUp";
 import AdminLogin from "./components/AdminLogin";
 import Profile from "./components/Profile";
+import AdminDashboard from "./views/AdminDashboard";
 function App() {
   return (
     <Router>
@@ -21,6 +22,7 @@ function App() {
           <Route path="/events" element={<h1>Events Page</h1>} />
           <Route path="/featured" element={<h1>Featured Page</h1>} />
           <Route path="/admin" element={<AdminLogin />} />
+          <Route path="/admin-dashboard" element={<AdminDashboard />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/contact" element={<h1>Contact Page</h1>} />
