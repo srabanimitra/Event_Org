@@ -5,7 +5,7 @@ import Footer from "./components/footer";
 import './App.css';
 import Login from "./components/login";
 import Signup from "./components/SignUp";
-
+import AdminLogin from "./components/AdminLogin";
 function App() {
   return (
     <Router>
