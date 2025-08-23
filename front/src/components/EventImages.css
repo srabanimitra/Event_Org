@@ -1,0 +1,46 @@
+.images-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.event-desc {
+  margin: 15px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.slideshow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.slideshow img {
+  width: 400px;
+  border-radius: 10px;
+}
+
+button {
+  font-size: 20px;
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0056b3;
+}
+.club-card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 180px;
+  cursor: pointer;
+  padding: 10px;
+  transition: 0.3s;
+}
+
+
