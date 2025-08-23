@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AuthController;
+
+Route::post('/signup', [AuthController::class, 'signup']);
+Route::post('/login', [AuthController::class, 'login']);
 
 Route::post('/admin-login', [AdminController::class, 'login']);
 
