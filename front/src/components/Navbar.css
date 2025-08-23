@@ -1,0 +1,40 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, #1e3a8a, #3b82f6); /* dark → light blue */
+  padding: 10px 20px;   /* smaller padding */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 22px;   /* smaller font */
+  font-weight: bold;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+.logo .wave {
+  color: #38bdf8; /* lighter blue wave */
+  font-size: 24px; /* smaller wave */
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 15px;   /* reduced spacing */
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #f0f9ff;
+  font-size: 14px;   /* smaller text */
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #93c5fd; /* light hover effect */
+}
