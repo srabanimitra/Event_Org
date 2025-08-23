@@ -1,23 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Profile.css";
 import download from "../assets/images/download.png";
 
 const Profile = () => {
   const navigate = useNavigate();
+  const [profileData, setProfileData] = useState(null);
 
-  // Dummy data for frontend only
-  const profileData = {
-    name: "John Doe",
-    phone: "0123456789",
-    email: "john@example.com",
-    address: "Dhaka, Bangladesh",
-    role: "User",
-  };
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      const user = JSON.parse(storedUser);
+      setProfileData({
+        name: user.name,
+        email: user.email,
+        role: "User", // default role for signup
+      });
+    } else {
+      navigate("/login"); // if not logged in, go to login
+    }
+  }, [navigate]);
 
   const handleLogout = () => {
-    navigate("/"); // Just redirect to homepage for now
+    localStorage.removeItem("user"); // remove user data
+    navigate("/login"); // redirect to login
   };
+
+  if (!profileData) return null; // prevent flash before loading
 
   return (
     <div className="profile-container">
@@ -27,27 +36,12 @@ const Profile = () => {
           <h2>Profile</h2>
         </div>
         <div className="profile-info">
-          <p>
-            <strong>Name:</strong> {profileData.name}
-          </p>
-          <p>
-            <strong>Phone:</strong> {profileData.phone}
-          </p>
-          <p>
-            <strong>Email:</strong> {profileData.email}
-          </p>
-          <p>
-            <strong>Address:</strong> {profileData.address}
-          </p>
-          <p>
-            <strong>Role:</strong> {profileData.role}
-          </p>
+          <p><strong>Name:</strong> {profileData.name}</p>
+          <p><strong>Email:</strong> {profileData.email}</p>
+          <p><strong>Role:</strong> {profileData.role}</p>
         </div>
         <div className="profile-actions">
-          <button
-            onClick={() => navigate("/events")}
-            className="profile-button"
-          >
+          <button onClick={() => navigate("/events")} className="profile-button">
             My Events
           </button>
           <button className="profile-button">Edit Profile</button>
