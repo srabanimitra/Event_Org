@@ -38,9 +38,9 @@ const Login = () => {
       }
 
       alert("Login successful!");
-      console.log(data);
+      localStorage.setItem("user", JSON.stringify(data.user)); // save user in localStorage
+      window.location.href = "/profile"; // redirect to profile
 
-      window.location.href = "/";
 
     } catch (error) {
       console.error(error);
@@ -49,14 +49,14 @@ const Login = () => {
   };
 
   return (
-    <div className='container'>
-      <div className="header">
-        <div className="text">Login</div>
-        <div className="underline"></div>
-      </div>
+    <div className="login-page">
+      <div className="container">
+        <div className="header">
+          <div className="text">Login</div>
+          <div className="underline"></div>
+        </div>
 
-      <div className="inputs">
-        <div className="input">
+        <div className="inputs">
           <select
             value={role}
             onChange={(e) => setRole(e.target.value)}
@@ -66,39 +66,40 @@ const Login = () => {
             <option value="User">User</option>
             <option value="Admin">Admin</option>
           </select>
+
+          <div className="input">
+            <img src={email} alt="Email" />
+            <input
+              placeholder="Email Id"
+              type="email"
+              value={emailValue}
+              onChange={(e) => setEmail(e.target.value.toLowerCase())}
+            />
+          </div>
+
+          <div className="input">
+            <img src={Password} alt="Password" />
+            <input
+              placeholder="Password"
+              type="password"
+              value={passwordValue}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
         </div>
 
-
-        <div className="input">
-          <img src={email} alt="Email" />
-          <input
-            placeholder="Email Id"
-            type="email"
-            value={emailValue}
-            onChange={(e) => setEmail(e.target.value.toLowerCase())}
-          />
+        <div className="have-account">
+          Don’t have an account? <Link to="/signup">Sign Up</Link>
         </div>
 
-        <div className="input">
-          <img src={Password} alt="Password" />
-          <input
-            placeholder="Password"
-            type="password"
-            value={passwordValue}
-            onChange={(e) => setPassword(e.target.value)}
-          />
+        <div className="submit-container">
+          <div className="submit" onClick={handleLogin}>Login</div>
         </div>
-      </div>
-
-      <div className="have-account">
-        Don’t have an account? <Link to="/signup">Sign Up</Link>
-      </div>
-
-      <div className="submit-container">
-        <div className="submit" onClick={handleLogin}>Login</div>
       </div>
     </div>
+
   );
+
 };
 
 export default Login;
