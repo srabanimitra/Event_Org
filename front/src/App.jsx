@@ -5,6 +5,9 @@ import Footer from "./components/footer";
 import './App.css';
 import Login from "./components/login";
 import Signup from "./components/SignUp";
+import AdminLogin from "./components/AdminLogin";
+
+
 
 function App() {
   return (
@@ -18,7 +21,7 @@ function App() {
 
           <Route path="/events" element={<h1>Events Page</h1>} />
           <Route path="/featured" element={<h1>Featured Page</h1>} />
-          <Route path="/admin" element={<h1>Admin Login Page</h1>} />
+          <Route path="/admin" element={<AdminLogin />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/contact" element={<h1>Contact Page</h1>} />
