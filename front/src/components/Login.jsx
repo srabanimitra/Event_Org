@@ -40,8 +40,7 @@ const Login = () => {
       alert("Login successful!");
       console.log(data);
 
-      // Redirect to home page after login
-      window.location.href = "/"; // or use react-router `useNavigate` if using react-router-dom v6+
+      window.location.href = "/";
 
     } catch (error) {
       console.error(error);
