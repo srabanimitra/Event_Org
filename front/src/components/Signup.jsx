@@ -11,10 +11,9 @@ const Signup = () => {
   const [emailValue, setEmail] = useState("");
   const [passwordValue, setPassword] = useState("");
 
-  const handleSignup = () => {
-    // Just a dummy validation (no backend call)
+  const handleSignup = async () => {
     if (!emailValue.includes("@")) {
-      alert("Invalid email! Email must contain '@'.");
+      alert("Invalid email!");
       return;
     }
     if (passwordValue.length < 6) {
@@ -22,8 +21,34 @@ const Signup = () => {
       return;
     }
 
-    alert(`Signup successful!\nName: ${name}\nEmail: ${emailValue}`);
+    try {
+      const response = await fetch("http://127.0.0.1:8000/api/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: name,
+          email: emailValue,
+          password: passwordValue,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        alert(data.message || "Signup failed!");
+        return;
+      }
+
+      alert("Signup successful!");
+      console.log(data);
+    } catch (error) {
+      console.error(error);
+      alert("An error occurred during signup.");
+    }
   };
+
 
   return (
     <div className='container'>
@@ -35,30 +60,30 @@ const Signup = () => {
       <div className="inputs">
         <div className="input">
           <img src={person} alt="Person" />
-          <input 
-            placeholder="Name" 
+          <input
+            placeholder="Name"
             type="text"
             value={name}
-            onChange={(e) => setName(e.target.value)} 
+            onChange={(e) => setName(e.target.value)}
           />
         </div>
 
         <div className="input">
           <img src={email} alt="Email" />
-          <input 
-            placeholder="Email Id" 
+          <input
+            placeholder="Email Id"
             type="email"
-            value={emailValue} 
-            onChange={(e) => setEmail(e.target.value.toLowerCase())} 
+            value={emailValue}
+            onChange={(e) => setEmail(e.target.value.toLowerCase())}
           />
         </div>
 
         <div className="input">
           <img src={Password} alt="Password" />
-          <input 
-            placeholder="Password" 
-            type="password" 
-            value={passwordValue} 
+          <input
+            placeholder="Password"
+            type="password"
+            value={passwordValue}
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
