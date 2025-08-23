@@ -8,7 +8,9 @@ import Signup from "./components/SignUp";
 import AdminLogin from "./components/AdminLogin";
 import Profile from "./components/Profile";
 import AdminDashboard from "./views/AdminDashboard";
+import EventPage from "./views/EventPage";
 import Login from "./components/Login";
+
 function App() {
   return (
     <Router>
@@ -19,7 +21,6 @@ function App() {
       <main style={{ paddingTop: "10px", minHeight: "80vh" }}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/events" element={<h1>Events Page</h1>} />
           <Route path="/featured" element={<h1>Featured Page</h1>} />
           <Route path="/admin" element={<AdminLogin />} />
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
@@ -31,6 +32,7 @@ function App() {
           <Route path="/sponsor" element={<h1>Sponsor Page</h1>} />
           <Route path="/gallery" element={<h1>Gallery Page</h1>} />
           <Route path="/" element={<h1>Welcome to Eventify 🎉</h1>} />
+          <Route path="/events" element={<EventPage />} />
         </Routes>
       </main>
 
