@@ -44,6 +44,7 @@ const Signup = () => {
       }
 
       alert("Signup successful!");
+      window.location.href = "/login";
       console.log(data);
     } catch (error) {
       console.error(error);
