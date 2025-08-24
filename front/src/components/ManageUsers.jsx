@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./ManageUsers.css";
 
 const ManageUsers = () => {
     const [users, setUsers] = useState([]);
@@ -35,9 +36,9 @@ const ManageUsers = () => {
     }, []);
 
     return (
-        <div style={{ padding: "20px" }}>
+        <div className="manage-users-container">
             <h2>Manage Users</h2>
-            <table border="1" cellPadding="10" style={{ width: "100%", textAlign: "left" }}>
+            <table className="manage-users-table">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -54,7 +55,10 @@ const ManageUsers = () => {
                                 <td>{u.name}</td>
                                 <td>{u.email}</td>
                                 <td>
-                                    <button onClick={() => handleDelete(u.id)} style={{ color: "red" }}>
+                                    <button
+                                        className="delete-btn"
+                                        onClick={() => handleDelete(u.id)}
+                                    >
                                         Delete
                                     </button>
                                 </td>

@@ -1,49 +1,58 @@
 .event-page {
-  max-width: 600px;
+  max-width: 1200px; /* wider container */
   margin: 2rem auto;
   padding: 2rem;
   background: #f9fafb;
   border-radius: 1rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .event-header {
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  font-size: 2rem;
 }
 
-.participant-form .form-row {
-  margin-bottom: 1rem;
+/* Flex container for horizontal row */
+.event-grid {
   display: flex;
-  flex-direction: column;
+  gap: 20px;
+  overflow-x: auto; /* allows horizontal scrolling */
+  padding-bottom: 10px; /* small space for scrollbar */
 }
 
-.participant-form input {
-  padding: 0.75rem;
+/* Individual Event Card */
+.event-card {
+  min-width: 250px; /* fixed width for row layout */
   border: 1px solid #ddd;
-  border-radius: 0.5rem;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  background-color: #f9f9f9;
+  transition: transform 0.2s;
+  flex-shrink: 0; /* prevent shrinking in flex row */
 }
 
-.btn-primary {
-  width: 100%;
-  padding: 0.75rem;
-  background: #2563eb;
-  color: white;
-  border: none;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  font-size: 1rem;
+.event-card:hover {
+  transform: scale(1.03);
 }
 
-.btn-primary:hover {
-  background: #1d4ed8;
+/* Participate Button */
+.participate-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #4f46e5;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
 }
 
-.success-msg {
-  background: #dcfce7;
-  color: #166534;
-  padding: 0.75rem;
-  border-radius: 0.5rem;
-  margin-bottom: 1rem;
-  text-align: center;
+.participate-btn:hover {
+  background-color: #4338ca;
+}
+.event-card h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.2rem;
 }
