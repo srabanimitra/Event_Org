@@ -1,7 +1,9 @@
 .sponsor-container {
   text-align: center;
   padding: 50px 20px;
-  background: #f9fafb;
+  background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #a18cd1, #fbc2eb, #4569d3, #90a6e9);
+  background-size: 400% 400%;
+  animation: gradientBG 12s ease infinite;
 }
 
 .sponsor-container h1 {
@@ -54,5 +56,41 @@
   }
   100% {
     transform: translateX(-50%);
+  }
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .sponsor-container h1 {
+    font-size: 28px;
+  }
+  .sponsor-intro {
+    font-size: 16px;
+  }
+  .slide {
+    width: 150px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 600px) {
+  .sponsor-container h1 {
+    font-size: 24px;
+  }
+  .sponsor-intro {
+    font-size: 14px;
+  }
+  .slide {
+    width: 120px;
+    height: 80px;
+  }
+  .slide-track {
+    width: calc(120px * 10);
   }
 }
