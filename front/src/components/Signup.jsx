@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import person from '../assets/images/person.png';
 import email from '../assets/images/email.png';
 import Password from '../assets/images/password.png';
+import Phone from '../assets/images/phone.png';
+import Address from '../assets/images/address.png';
 
 const Signup = () => {
   const [name, setName] = useState("");
@@ -73,9 +75,11 @@ const Signup = () => {
           </div>
 
           <div className="input">
+            <img src={Phone} alt="Phone" />
             <input placeholder="Mobile Number" type="text" value={mobile} onChange={(e) => setMobile(e.target.value)} />
           </div>
           <div className="input">
+            <img src={Address} alt="Address" />
             <input placeholder="Address" type="text" value={address} onChange={(e) => setAddress(e.target.value)} />
           </div>
         </div>
