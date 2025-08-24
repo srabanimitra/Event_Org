@@ -5,7 +5,7 @@ import Footer from "./components/footer";
 import Home from "./views/Home";
 import './App.css';
 import Login from "./components/Login";
-import Signup from "./components/SignUp";
+import Signup from "./components/Signup";
 import AdminLogin from "./components/AdminLogin";
 import Profile from "./components/Profile";
 import AdminDashboard from "./views/AdminDashboard";
