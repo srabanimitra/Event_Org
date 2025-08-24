@@ -9,6 +9,7 @@ use App\Http\Controllers\ClubController;
 
 Route::get('/users', [AuthController::class, 'getAllUsers']);
 Route::delete('/users/{id}', [AuthController::class, 'deleteUser']);
+Route::put('/update-profile/{id}', [AuthController::class, 'updateProfile']);
 
 /*
 |--------------------------------------------------------------------------
