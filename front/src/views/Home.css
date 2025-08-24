@@ -1,20 +1,37 @@
+/* Reset all margins/padding */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+/* Full-screen hero like profile */
 .hero {
+  position: fixed; /* 🔥 makes it cover entire viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   text-align: center;
 
-  width: 80vw;
-  height: 100vh;
   color: white;
-  position: relative;
   overflow: hidden;
 
-  /* Animated gradient background */
-  background: linear-gradient(270deg, #1e3a8a, #5b48ec, #5e0790, #000000);
-  background-size: 800% 800%;
-  animation: gradientShift 20s ease infinite;
+  /* Gradient background */
+  background: radial-gradient(circle at 30% 30%, #5b48ec, transparent 40%),
+              radial-gradient(circle at 70% 70%, #ff00cc, transparent 40%),
+              radial-gradient(circle at 50% 50%, #ffb347, transparent 50%),
+              linear-gradient(270deg, #0d1b4c, #2e006f, #5e0790, #000000);
+  background-size: 400% 400%;
+  animation: gradientShift 25s ease infinite;
+  z-index: 0;
 }
 
 /* Gradient animation */
@@ -24,40 +41,85 @@
   100% { background-position: 0% 50%; }
 }
 
-/* Tiny star field overlay */
-.hero::before {
-  content: "";
+/* Stars overlay */
+.overlay {
   position: absolute;
   top: 0; left: 0;
-  width: 200%;   /* extend a bit to avoid edges */
-  height: 200%;
-  background: transparent;
+  width: 100%;
+  height: 100%;
   z-index: 1;
   pointer-events: none;
 
-  /* Generate many tiny stars using radial gradients */
   background-image:
-    radial-gradient(1px 1px, white 100%, transparent 0),
-    radial-gradient(1px 1px, white 100%, transparent 0),
-    radial-gradient(1px 1px, white 100%, transparent 0),
-    radial-gradient(1px 1px, white 100%, transparent 0),
-    radial-gradient(1px 1px, white 100%, transparent 0);
+    radial-gradient(1.5px 1.5px, rgba(255,255,255,0.9) 100%, transparent 0),
+    radial-gradient(1px 1px, rgba(255,255,255,0.7) 100%, transparent 0),
+    radial-gradient(0.8px 0.8px, rgba(255,255,255,0.5) 100%, transparent 0);
   background-repeat: repeat;
-  background-size: 50px 50px, 70px 70px, 90px 90px, 120px 120px, 150px 150px;
+  background-size: 60px 60px, 120px 120px, 200px 200px;
   animation: starMove 60s linear infinite;
-  opacity: 0.8;
+  opacity: 0.7;
 }
 
-/* Subtle movement to simulate twinkling/scrolling stars */
 @keyframes starMove {
   from { transform: translate(0,0); }
-  to { transform: translate(-200px, -200px); }
+  to { transform: translate(-300px, -300px); }
 }
 
-/* Text stays above stars */
-.hero h1, 
-.hero p, 
-.hero .buttons {
+/* Title animation */
+.title {
+  font-size: 3rem;
+  font-weight: bold;
+  z-index: 2;
+  opacity: 0;
+  transform: translateX(100%);
+  animation: slideIn 2s ease forwards 0.5s;
+}
+
+@keyframes slideIn {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Subtitle + buttons fade in */
+.subtitle, .buttons {
   position: relative;
   z-index: 2;
+  opacity: 0;
+  animation: fadeIn 2s ease forwards 2.5s;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* Buttons styling */
+.buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+}
+
+.btn {
+  padding: 10px 20px;
+  background-color: #5b48ec;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #ff00cc;
+}
+
+.btn-outline {
+  border: 2px solid white;
+  background-color: transparent;
+}
+
+.btn-outline:hover {
+  background-color: rgba(255,255,255,0.2);
 }

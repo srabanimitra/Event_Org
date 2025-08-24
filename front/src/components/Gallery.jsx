@@ -15,15 +15,17 @@ export default function Gallery() {
   };
 
   return (
-    <div className="gallery-container">
-      <h1>Clubs Gallery</h1>
-      <div className="gallery-grid">
-        {clubs.map((club) => (
-          <div key={club.id} className="club-card" onClick={() => handleClick(club.id)}>
-            <img src={club.image} alt={club.name} />
-            <h3>{club.name}</h3>
-          </div>
-        ))}
+    <div className="gallery-wrapper">
+      <div className="gallery-container">
+        <h1>Clubs Gallery</h1>
+        <div className="gallery-grid">
+          {clubs.map((club) => (
+            <div key={club.id} className="club-card" onClick={() => handleClick(club.id)}>
+              <img src={club.image} alt={club.name} />
+              <h3>{club.name}</h3>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

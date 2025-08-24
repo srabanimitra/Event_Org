@@ -1,34 +1,42 @@
-/* Ensure the html and body take full height */
+/* Reset */
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
-/* Background with animated gradient filling whole screen */
+/* Full-screen login page */
 .login-page {
-  min-height: 100vh;  /* full viewport height */
-  width: 100vw;        /* full viewport width */
+  position: fixed;   /* 🔥 makes it cover entire viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #a18cd1, #fbc2eb);
+
+  /* Animated gradient background */
+  background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #a18cd1, #fbc2eb, #4569d3, #90a6e9);
   background-size: 400% 400%;
   animation: gradientBG 12s ease infinite;
-  position: relative;  /* ensures it fills the screen */
+  z-index: 0;
 }
 
-
+/* Login box */
 .login-box {
-  background: rgba(0, 102, 204, 0.9); 
+  background: rgba(0, 51, 102, 0.9); 
   padding: 40px;
   border-radius: 15px;
   width: 320px;
-  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
   text-align: center;
   color: white;
+  position: relative;
+  z-index: 1; /* Above gradient */
 }
-
 
 /* Title */
 .login-box h2 {
@@ -44,7 +52,7 @@ html, body {
   font-size: 14px;
 }
 
-/* Input fields */
+/* Inputs */
 .login-box input {
   width: 100%;
   padding: 10px;
@@ -55,7 +63,7 @@ html, body {
   font-size: 14px;
 }
 
-/* Dark blue button */
+/* Button */
 .login-box button {
   width: 100%;
   padding: 12px;
@@ -65,11 +73,12 @@ html, body {
   color: white;
   font-size: 16px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .login-box button:hover {
   background-color: #001a33;
+  transform: translateY(-2px);
 }
 
 /* Background animation */

@@ -1,5 +1,5 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import "./ArrangedEvents.css"
+import "./ArrangedEvents.css";
 
 const events = [
   { id: 1, clubId: 1, name: "Insights into AI & Machine Learning", shortDesc: "AI & ML event highlights.", image: "https://scontent.fdac41-1.fna.fbcdn.net/v/t39.30808-6/524857765_1333837512085226_5055616544498676870_n.jpg?stp=dst-jpg_p526x296_tt6&_nc_cat=102&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeFSUCsbJ0aKdyTBDjs06_752DuGe7oGpl7YO4Z7ugamXjwoNbQ8Uvuvfa3VwM8CYZz1m4_sdANlZs8Wnc6eWIgh&_nc_ohc=2Mf3XSBRVvwQ7kNvwE0irlL&_nc_oc=AdmMv_9BFTUOy-eKphOJpAuqF8ob3_1I_Jp7FgYy5RcmAsL6TOAnsxJmAuNbt0pFU2Y&_nc_zt=23&_nc_ht=scontent.fdac41-1.fna&_nc_gid=K8-DN51G0COHVR662SgNDw&oh=00_AfU2PUIoKHrEgH7ZV-z8m2-0aeBv1I127ErA0wRH8HyWYg&oe=68AFCE21" },
@@ -18,16 +18,18 @@ export default function ArrangedEvents() {
   const filteredEvents = clubId ? events.filter((e) => e.clubId === parseInt(clubId)) : events;
 
   return (
-    <div className="events-container">
-      <h1>Arranged Events</h1>
-      <div className="events-grid">
-        {filteredEvents.map((event) => (
-          <div key={event.id} className="event-card" onClick={() => navigate(`/images/${event.id}`)}>
-            <img src={event.image} alt={event.name} />
-            <h3>{event.name}</h3>
-            <p className="event-short-desc">{event.shortDesc}</p> {/* Only short description */}
-          </div>
-        ))}
+    <div className="events-wrapper">
+      <div className="events-container">
+        <h1>Arranged Events</h1>
+        <div className="events-grid">
+          {filteredEvents.map((event) => (
+            <div key={event.id} className="event-card" onClick={() => navigate(`/images/${event.id}`)}>
+              <img src={event.image} alt={event.name} />
+              <h3>{event.name}</h3>
+              <p className="event-short-desc">{event.shortDesc}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
