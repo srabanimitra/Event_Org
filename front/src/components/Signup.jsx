@@ -12,7 +12,6 @@ const Signup = () => {
   const [passwordValue, setPassword] = useState("");
   const [mobile, setMobile] = useState("");
   const [address, setAddress] = useState("");
-  const [interests, setInterests] = useState("");
 
   const handleSignup = async () => {
     if (!emailValue.includes("@")) {
@@ -29,8 +28,11 @@ const Signup = () => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name, email: emailValue, password: passwordValue,
-          mobile, address, interests
+          name,
+          email: emailValue,
+          password: passwordValue,
+          mobile,
+          address
         }),
       });
 
@@ -60,27 +62,50 @@ const Signup = () => {
         <div className="inputs">
           <div className="input">
             <img src={person} alt="Person" />
-            <input placeholder="Name" type="text" value={name} onChange={(e) => setName(e.target.value)} />
+            <input
+              placeholder="Name"
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
           </div>
 
           <div className="input">
             <img src={email} alt="Email" />
-            <input placeholder="Email Id" type="email" value={emailValue} onChange={(e) => setEmail(e.target.value.toLowerCase())} />
+            <input
+              placeholder="Email Id"
+              type="email"
+              value={emailValue}
+              onChange={(e) => setEmail(e.target.value.toLowerCase())}
+            />
           </div>
 
           <div className="input">
             <img src={Password} alt="Password" />
-            <input placeholder="Password" type="password" value={passwordValue} onChange={(e) => setPassword(e.target.value)} />
+            <input
+              placeholder="Password"
+              type="password"
+              value={passwordValue}
+              onChange={(e) => setPassword(e.target.value)}
+            />
           </div>
 
           <div className="input">
-            <input placeholder="Mobile Number" type="text" value={mobile} onChange={(e) => setMobile(e.target.value)} />
+            <input
+              placeholder="Mobile Number"
+              type="text"
+              value={mobile}
+              onChange={(e) => setMobile(e.target.value)}
+            />
           </div>
+
           <div className="input">
-            <input placeholder="Address" type="text" value={address} onChange={(e) => setAddress(e.target.value)} />
-          </div>
-          <div className="input">
-            <input placeholder="Interests (comma separated)" type="text" value={interests} onChange={(e) => setInterests(e.target.value)} />
+            <input
+              placeholder="Address"
+              type="text"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+            />
           </div>
         </div>
 
@@ -89,7 +114,9 @@ const Signup = () => {
         </div>
 
         <div className="submit-container">
-          <div className="submit" onClick={handleSignup}>Sign Up</div>
+          <div className="submit" onClick={handleSignup}>
+            Sign Up
+          </div>
         </div>
       </div>
     </div>
