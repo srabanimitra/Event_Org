@@ -1,13 +1,27 @@
+/* Reset all margins/padding */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+/* Full-screen hero like profile */
 .hero {
+  position: fixed; /* 🔥 makes it cover entire viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   text-align: center;
 
-  height: 100vh;
   color: white;
-  position: relative;
   overflow: hidden;
 
   /* Gradient background */
@@ -17,6 +31,7 @@
               linear-gradient(270deg, #0d1b4c, #2e006f, #5e0790, #000000);
   background-size: 400% 400%;
   animation: gradientShift 25s ease infinite;
+  z-index: 0;
 }
 
 /* Gradient animation */
@@ -27,54 +42,39 @@
 }
 
 /* Stars overlay */
-.overlay::before {
-  content: "";
+.overlay {
   position: absolute;
   top: 0; left: 0;
-  width: 200%; height: 200%;
+  width: 100%;
+  height: 100%;
   z-index: 1;
+  pointer-events: none;
+
   background-image:
-    radial-gradient(2px 2px, rgba(255,255,255,0.9) 100%, transparent 0),
-    radial-gradient(2px 2px, rgba(255,255,255,0.7) 100%, transparent 0),
-    radial-gradient(1.5px 1.5px, rgba(255,255,255,0.5) 100%, transparent 0);
+    radial-gradient(1.5px 1.5px, rgba(255,255,255,0.9) 100%, transparent 0),
+    radial-gradient(1px 1px, rgba(255,255,255,0.7) 100%, transparent 0),
+    radial-gradient(0.8px 0.8px, rgba(255,255,255,0.5) 100%, transparent 0);
   background-repeat: repeat;
-  background-size: 80px 80px, 120px 120px, 200px 200px;
+  background-size: 60px 60px, 120px 120px, 200px 200px;
   animation: starMove 60s linear infinite;
   opacity: 0.7;
 }
+
 @keyframes starMove {
   from { transform: translate(0,0); }
   to { transform: translate(-300px, -300px); }
 }
 
-/* Boy illustration */
-.boy {
-  position: absolute;
-  bottom: 0;
-  right: 50%;
-  transform: translateX(50%);
-  width: 300px;
-  z-index: 2;
-  animation: boyPress 3s ease-in-out forwards;
-}
-
-/* Simulate boy pressing */
-@keyframes boyPress {
-  0% { transform: translateX(60%) scale(1); opacity: 0; }
-  30% { transform: translateX(50%) scale(1.05); opacity: 1; }
-  60% { transform: translateX(50%) scale(1); }
-  100% { transform: translateX(50%) scale(1); }
-}
-
-/* Title slide-in */
+/* Title animation */
 .title {
   font-size: 3rem;
   font-weight: bold;
-  z-index: 3;
+  z-index: 2;
   opacity: 0;
   transform: translateX(100%);
-  animation: slideIn 2s ease forwards 2s; /* delay after boy presses */
+  animation: slideIn 2s ease forwards 0.5s;
 }
+
 @keyframes slideIn {
   to {
     transform: translateX(0);
@@ -82,12 +82,44 @@
   }
 }
 
+/* Subtitle + buttons fade in */
 .subtitle, .buttons {
   position: relative;
-  z-index: 3;
+  z-index: 2;
   opacity: 0;
-  animation: fadeIn 2s ease forwards 3.5s; /* appear after title */
+  animation: fadeIn 2s ease forwards 2.5s;
 }
+
 @keyframes fadeIn {
   to { opacity: 1; }
+}
+
+/* Buttons styling */
+.buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+}
+
+.btn {
+  padding: 10px 20px;
+  background-color: #5b48ec;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #ff00cc;
+}
+
+.btn-outline {
+  border: 2px solid white;
+  background-color: transparent;
+}
+
+.btn-outline:hover {
+  background-color: rgba(255,255,255,0.2);
 }

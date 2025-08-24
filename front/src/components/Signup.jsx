@@ -13,6 +13,7 @@ const Signup = () => {
   const [mobile, setMobile] = useState("");
   const [address, setAddress] = useState("");
   const [interests, setInterests] = useState("");
+
   const handleSignup = async () => {
     if (!emailValue.includes("@")) {
       alert("Invalid email!");
@@ -26,16 +27,10 @@ const Signup = () => {
     try {
       const response = await fetch("http://127.0.0.1:8000/api/signup", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name: name,
-          email: emailValue,
-          password: passwordValue,
-          mobile: mobile,
-          address: address,
-          interests: interests,
+          name, email: emailValue, password: passwordValue,
+          mobile, address, interests
         }),
       });
 
@@ -54,77 +49,48 @@ const Signup = () => {
     }
   };
 
-
   return (
-    <div className='container'>
-      <div className="header">
-        <div className="text">Sign Up</div>
-        <div className="underline"></div>
-      </div>
-
-      <div className="inputs">
-        <div className="input">
-          <img src={person} alt="Person" />
-          <input
-            placeholder="Name"
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
+    <div className="signup-wrapper">
+      <div className='container'>
+        <div className="header">
+          <div className="text">Sign Up</div>
+          <div className="underline"></div>
         </div>
 
-        <div className="input">
-          <img src={email} alt="Email" />
-          <input
-            placeholder="Email Id"
-            type="email"
-            value={emailValue}
-            onChange={(e) => setEmail(e.target.value.toLowerCase())}
-          />
+        <div className="inputs">
+          <div className="input">
+            <img src={person} alt="Person" />
+            <input placeholder="Name" type="text" value={name} onChange={(e) => setName(e.target.value)} />
+          </div>
+
+          <div className="input">
+            <img src={email} alt="Email" />
+            <input placeholder="Email Id" type="email" value={emailValue} onChange={(e) => setEmail(e.target.value.toLowerCase())} />
+          </div>
+
+          <div className="input">
+            <img src={Password} alt="Password" />
+            <input placeholder="Password" type="password" value={passwordValue} onChange={(e) => setPassword(e.target.value)} />
+          </div>
+
+          <div className="input">
+            <input placeholder="Mobile Number" type="text" value={mobile} onChange={(e) => setMobile(e.target.value)} />
+          </div>
+          <div className="input">
+            <input placeholder="Address" type="text" value={address} onChange={(e) => setAddress(e.target.value)} />
+          </div>
+          <div className="input">
+            <input placeholder="Interests (comma separated)" type="text" value={interests} onChange={(e) => setInterests(e.target.value)} />
+          </div>
         </div>
 
-        <div className="input">
-          <img src={Password} alt="Password" />
-          <input
-            placeholder="Password"
-            type="password"
-            value={passwordValue}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-        <div className="input">
-          <input
-            placeholder="Mobile Number"
-            type="text"
-            value={mobile}
-            onChange={(e) => setMobile(e.target.value)}
-          />
-        </div>
-        <div className="input">
-          <input
-            placeholder="Address"
-            type="text"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
-          />
+        <div className="have-account">
+          Already have an account? <Link to="/login">Login</Link>
         </div>
 
-        <div className="input">
-          <input
-            placeholder="Interests (comma separated)"
-            type="text"
-            value={interests}
-            onChange={(e) => setInterests(e.target.value)}
-          />
+        <div className="submit-container">
+          <div className="submit" onClick={handleSignup}>Sign Up</div>
         </div>
-      </div>
-
-      <div className="have-account">
-        Already have an account? <Link to="/login">Login</Link>
-      </div>
-
-      <div className="submit-container">
-        <div className="submit" onClick={handleSignup}>Sign Up</div>
       </div>
     </div>
   );

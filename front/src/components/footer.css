@@ -21,7 +21,29 @@
   color: #e0e7ff;
   text-decoration: none;
   transition: color 0.3s;
+  position: relative;   /* for ::after underline */
+  padding: 2px 4px;
 }
+
+.footer-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;         /* little gap below text */
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: red;      /* underline color */
+  transition: width 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #fff;          /* text turns brighter */
+}
+
+.footer-links a:hover::after {
+  width: 100%;          /* animate underline */
+}
+
 
 .footer-links a:hover {
   color: #fff;
