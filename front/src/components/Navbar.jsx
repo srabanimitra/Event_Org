@@ -5,10 +5,13 @@ import "./Navbar.css";
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const navigate = useNavigate();
+
     const user = JSON.parse(localStorage.getItem("user"));
+    const isAdmin = localStorage.getItem("adminLoggedIn") === "true";
 
     const handleLogout = () => {
         localStorage.removeItem("user");
+        localStorage.removeItem("adminLoggedIn");
         navigate("/login");
     };
 
@@ -34,17 +37,36 @@ const Navbar = () => {
                 <li><Link to="/events">Events</Link></li>
                 <li><Link to="/gallery">Gallery</Link></li>
 
-                <li><Link to="/admin">Admin Login</Link></li>
+                {/* ✅ Show Admin Panel only if ADMIN logged in */}
+                {isAdmin && <li><Link to="/admin-dashboard">Admin Panel</Link></li>}
 
-                {/* ✅ If logged in, show Profile + Logout */}
-                {user ? (
+                {/* ✅ Show Admin Login only if NOT logged in at all */}
+                {!user && !isAdmin && <li><Link to="/admin">Admin Login</Link></li>}
+
+                {/* ✅ If USER logged in */}
+                {user && !isAdmin && (
                     <>
                         <li><Link to="/profile">Profile</Link></li>
-                        <li><button onClick={handleLogout} className="logout-btn">Logout</button></li>
+                        <li>
+                            <button onClick={handleLogout} className="logout-btn small">
+                                Logout
+                            </button>
+                        </li>
                     </>
-                ) : (
+                )}
+
+                {/* ✅ If ADMIN logged in */}
+                {isAdmin && (
+                    <li>
+                        <button onClick={handleLogout} className="logout-btn small">
+                            Logout
+                        </button>
+                    </li>
+                )}
+
+                {/* ✅ If NOT logged in (no user, no admin) */}
+                {!user && !isAdmin && (
                     <>
-                        {/* ✅ If NOT logged in, show Login + Signup */}
                         <li><Link to="/login" className="special">Login</Link></li>
                         <li><Link to="/signup" className="special">Signup</Link></li>
                     </>

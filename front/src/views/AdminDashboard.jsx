@@ -47,25 +47,35 @@ const AdminDashboard = () => {
     <div className="admin-dashboard">
       <AdminNavbar />
 
-      {/* Stats */}
-      <div className="stats-container">
-        <div className="stat-card"><h3>Total Events</h3><p>{events.length}</p></div>
-        <div className="stat-card"><h3>Upcoming Events</h3><p>{upcomingEvents}</p></div>
-        <div className="stat-card"><h3>Total Attendees</h3><p>{totalAttendees}</p></div>
-      </div>
-
-      {/* Manage Events */}
-      <div className="event-list">
-        <h2>Manage Events</h2>
-        {events.map(event => (
-          <div key={event.id} className="event-card">
-            <h3>{event.title}</h3>
-            <p>{event.description}</p>
-            <p><b>{new Date(event.datetime).toLocaleString()}</b></p>
-            <p>{event.location}</p>
-            <button onClick={() => handleDelete(event.id)}>Delete</button>
+      {/* Main Content */}
+      <div className="main-content">
+        {/* Left Side - Dashboard Stats */}
+        <div className="dashboard-left">
+          <h2>Admin Dashboard</h2>
+          <div className="stats-container">
+            <div className="stat-card"><h3>Total Events</h3><p>{events.length}</p></div>
+            <div className="stat-card"><h3>Upcoming Events</h3><p>{upcomingEvents}</p></div>
+            <div className="stat-card"><h3>Total Attendees</h3><p>{totalAttendees}</p></div>
           </div>
-        ))}
+        </div>
+
+        {/* Right Side - Manage Events */}
+        <div className="dashboard-right">
+          <h2>Manage Events</h2>
+          <div className="event-list-wrapper">
+            <div className="event-list">
+              {events.map(event => (
+                <div key={event.id} className="event-card">
+                  <h3>{event.title}</h3>
+                  <p>{event.description}</p>
+                  <p><b>{new Date(event.datetime).toLocaleString()}</b></p>
+                  <p>{event.location}</p>
+                  <button onClick={() => handleDelete(event.id)}>Delete</button>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
