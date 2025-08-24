@@ -13,6 +13,9 @@ import EventPage from "./views/EventPage";
 import Gallary from "./components/Gallery";
 import ArrangedEvents from "./components/ArrangedEvents";
 import EventImages from "./components/EventImages";
+import Sponsor from "./components/Sponsor";
+import Contact from "./components/Contact";
+import Information from "./components/Information";
 
 function App() {
   return (
@@ -21,7 +24,7 @@ function App() {
       <Navbar />
 
       {/* Page Content */}
-      <main style={{ paddingTop: "15px", minHeight: "80vh" }}>
+      <main style={{ paddingTop: "20px", minHeight: "80vh" }}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/featured" element={<h1>Featured Page</h1>} />
@@ -29,9 +32,10 @@ function App() {
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/contact" element={<h1>Contact Page</h1>} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/information" element={<Information />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/sponsor" element={<h1>Sponsor Page</h1>} />
+          <Route path="/sponsor" element={<Sponsor />} />
           <Route path="/gallery" element={<Gallary />} />
           <Route path="/arrangedevents" element={<ArrangedEvents />} />
           <Route path="/images/:eventId" element={<EventImages />} />

@@ -8,8 +8,8 @@ const Footer = () => {
       <div className="footer-links">
         <Link to="/gallery">Gallery</Link>
         <Link to="/sponsor">Sponsor</Link>
-        <Link to="/about">About Us</Link>
-        <Link to="/contact">Contact Us</Link>
+        <Link to="/about">About</Link>
+        <Link to="/contact">Contact</Link>
       </div>
       <div className="footer-bottom">
         © 2025 Eventify
