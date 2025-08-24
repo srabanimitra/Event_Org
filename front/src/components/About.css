@@ -1,0 +1,47 @@
+/* Fix bullet points alignment */
+.about-section ul {
+  list-style-position: inside; /* bullets appear in front of text */
+  padding-left: 0;             /* remove default padding */
+  margin-left: 0;              /* remove extra margin */
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .about-hero h1 {
+    font-size: 28px;
+  }
+
+  .about-section h2 {
+    font-size: 20px;
+  }
+
+  .about-section p,
+  .about-section ul {
+    font-size: 14px;
+  }
+
+  .contact-btn {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-hero h1 {
+    font-size: 24px;
+  }
+
+  .about-section h2 {
+    font-size: 18px;
+  }
+
+  .about-section p,
+  .about-section ul {
+    font-size: 13px;
+  }
+
+  .contact-btn {
+    font-size: 13px;
+    padding: 8px 16px;
+  }
+}
