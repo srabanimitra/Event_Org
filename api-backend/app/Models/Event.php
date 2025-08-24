@@ -10,16 +10,6 @@ class Event extends Model
     use HasFactory;
 
     protected $fillable = [
-        'club_id',
-        'title',
-        'description',
-        'location',
-        'datetime',
-        'attendees',
+        'title', 'description', 'location', 'datetime', 'attendees'
     ];
-
-    // Optional: to fetch club info with the event
-    public function club() {
-        return $this->belongsTo(Club::class);
-    }
 }
