@@ -13,6 +13,9 @@ import EventPage from "./views/EventPage";
 import Gallary from "./components/Gallery";
 import ArrangedEvents from "./components/ArrangedEvents";
 import EventImages from "./components/EventImages";
+import ManageUsers from "./components/ManageUsers";
+
+
 
 function App() {
   return (
@@ -37,6 +40,7 @@ function App() {
           <Route path="/images/:eventId" element={<EventImages />} />
           <Route path="/" element={<h1>Welcome to Eventify 🎉</h1>} />
           <Route path="/events" element={<EventPage />} />
+          <Route path="/manage-users" element={<ManageUsers />} />
         </Routes>
       </main>
 
