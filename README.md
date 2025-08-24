@@ -1,4 +1,4 @@
-# CampusCareerLink
+# Eventi~fy
 HACKATHON PROJECT: Eventify - University Club Event Management Platform
 
 ## Team Members
