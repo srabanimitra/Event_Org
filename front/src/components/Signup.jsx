@@ -12,7 +12,6 @@ const Signup = () => {
   const [passwordValue, setPassword] = useState("");
   const [mobile, setMobile] = useState("");
   const [address, setAddress] = useState("");
-  const [interests, setInterests] = useState("");
 
   const handleSignup = async () => {
     if (!emailValue.includes("@")) {
@@ -30,7 +29,7 @@ const Signup = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           name, email: emailValue, password: passwordValue,
-          mobile, address, interests
+          mobile, address
         }),
       });
 
@@ -78,9 +77,6 @@ const Signup = () => {
           </div>
           <div className="input">
             <input placeholder="Address" type="text" value={address} onChange={(e) => setAddress(e.target.value)} />
-          </div>
-          <div className="input">
-            <input placeholder="Interests (comma separated)" type="text" value={interests} onChange={(e) => setInterests(e.target.value)} />
           </div>
         </div>
 
