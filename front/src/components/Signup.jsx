@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import person from '../assets/images/person.png';
 import email from '../assets/images/email.png';
 import Password from '../assets/images/password.png';
+import Phone from '../assets/images/phone.png';
+import Address from '../assets/images/address.png';
 
 const Signup = () => {
   const [name, setName] = useState("");
@@ -12,7 +14,6 @@ const Signup = () => {
   const [passwordValue, setPassword] = useState("");
   const [mobile, setMobile] = useState("");
   const [address, setAddress] = useState("");
-  const [interests, setInterests] = useState("");
 
   const handleSignup = async () => {
     if (!emailValue.includes("@")) {
@@ -30,7 +31,7 @@ const Signup = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           name, email: emailValue, password: passwordValue,
-          mobile, address, interests
+          mobile, address
         }),
       });
 
@@ -74,13 +75,12 @@ const Signup = () => {
           </div>
 
           <div className="input">
+            <img src={Phone} alt="Phone" />
             <input placeholder="Mobile Number" type="text" value={mobile} onChange={(e) => setMobile(e.target.value)} />
           </div>
           <div className="input">
+            <img src={Address} alt="Address" />
             <input placeholder="Address" type="text" value={address} onChange={(e) => setAddress(e.target.value)} />
-          </div>
-          <div className="input">
-            <input placeholder="Interests (comma separated)" type="text" value={interests} onChange={(e) => setInterests(e.target.value)} />
           </div>
         </div>
 
