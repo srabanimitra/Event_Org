@@ -17,6 +17,8 @@ import Sponsor from "./components/Sponsor";
 import Contact from "./components/Contact";
 import Information from "./components/Information";
 import ManageUsers from "./components/ManageUsers";
+import CreateEvent from "./views/CreateEvent";
+import About from "./components/About";
 
 
 
@@ -40,11 +42,13 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/sponsor" element={<Sponsor />} />
           <Route path="/gallery" element={<Gallary />} />
+          <Route path="/about" element={<About />} />
           <Route path="/arrangedevents" element={<ArrangedEvents />} />
           <Route path="/images/:eventId" element={<EventImages />} />
           <Route path="/" element={<h1>Welcome to Eventify 🎉</h1>} />
           <Route path="/events" element={<EventPage />} />
           <Route path="/manage-users" element={<ManageUsers />} />
+          <Route path="/admin/create-event" element={<CreateEvent />} />
         </Routes>
       </main>
 

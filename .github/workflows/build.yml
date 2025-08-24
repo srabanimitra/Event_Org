@@ -1,0 +1,96 @@
+name: CI Pipeline
+
+on:
+  pull_request:
+    branches:
+      - main
+      - srabani
+
+jobs:
+  backend:
+    name: Laravel Backend CI
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:8
+        env:
+          MYSQL_ROOT_PASSWORD: ""
+          MYSQL_DATABASE: event
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping --host=127.0.0.1 --user=root --password=" 
+          --health-interval=10s 
+          --health-timeout=5s 
+          --health-retries=5
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          tools: composer
+          extensions: mbstring, bcmath, pdo, pdo_mysql
+
+      - name: Install Composer Dependencies
+        run: composer install --prefer-dist --no-progress
+        working-directory: ./api-backend
+
+      - name: Set up Environment
+        run: |
+          cp .env.example .env
+          echo "APP_KEY=${{ secrets.APP_KEY }}" >> .env
+          echo "DB_CONNECTION=mysql" >> .env
+          echo "DB_HOST=127.0.0.1" >> .env
+          echo "DB_PORT=3306" >> .env
+          echo "DB_DATABASE=event" >> .env
+          echo "DB_USERNAME=root" >> .env
+          echo "DB_PASSWORD=" >> .env
+          php artisan key:generate --force
+        working-directory: ./api-backend
+
+      - name: Verify MySQL Connection
+        run: |
+          until mysqladmin ping -h 127.0.0.1 -u root --password=; do
+            echo "Waiting for MySQL..."
+            sleep 2
+          done
+          echo "MySQL ready!"
+        working-directory: ./api-backend
+
+      - name: Run Database Migrations
+        run: php artisan migrate --force
+        working-directory: ./api-backend
+
+      - name: Run PHPUnit Tests
+        run: ./vendor/bin/phpunit --colors=always
+        working-directory: ./api-backend
+
+  frontend:
+    name: React Frontend CI
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install Dependencies
+        run: npm install
+        working-directory: front
+
+      - name: Run Lint
+        run: npm run lint
+        working-directory: front
+
+      - name: Build React App
+        run: npm run build
+        working-directory: ./front

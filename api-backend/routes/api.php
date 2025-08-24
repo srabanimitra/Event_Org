@@ -17,10 +17,17 @@ Route::put('/update-profile/{id}', [AuthController::class, 'updateProfile']);
 |--------------------------------------------------------------------------
 */
 
-// Public routes (no auth required)
-Route::get('/events', [EventController::class, 'index']);       // fetch all events
-Route::get('/events/{id}', [EventController::class, 'show']);   // fetch single event
+Route::post('/participants', [ParticipantController::class, 'store']);
+Route::get('/events/{id}/participants', [ParticipantController::class, 'index']);
 
+
+Route::get('/events', [EventController::class, 'index']);
+Route::get('/events/{id}', [EventController::class, 'show']);
+Route::post('/events', [EventController::class, 'store']);    // <- Create
+Route::put('/events/{id}', [EventController::class, 'update']);
+Route::delete('/events/{id}', [EventController::class, 'destroy']);
+
+Route::get('/events', [EventController::class, 'index']); // Public
 // User authentication
 Route::post('/signup', [AuthController::class, 'signup']);
 Route::post('/login', [AuthController::class, 'login']);

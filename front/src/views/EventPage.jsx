@@ -5,8 +5,7 @@ function EventPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Fetch events from Laravel backend
-    fetch("http://127.0.0.1:8000/api/events") // make sure your backend URL is correct
+    fetch("http://127.0.0.1:8000/api/events")
       .then((res) => res.json())
       .then((data) => {
         setEvents(data);
@@ -23,7 +22,6 @@ function EventPage() {
   return (
     <div style={{ padding: "2rem" }}>
       <h1 style={{ textAlign: "center", marginBottom: "20px" }}>Events 🎉</h1>
-
       {events.length === 0 ? (
         <p style={{ textAlign: "center" }}>No events found.</p>
       ) : (
@@ -43,9 +41,16 @@ function EventPage() {
                 borderRadius: "10px",
                 boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
                 backgroundColor: "#f9f9f9",
+                transition: "transform 0.2s",
               }}
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.transform = "scale(1.03)")
+              }
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.transform = "scale(1)")
+              }
             >
-              <h2>{event.title}</h2>
+              <h2 style={{ marginBottom: "10px" }}>{event.title}</h2>
               <p>{event.description}</p>
               <p>
                 <strong>Date & Time:</strong>{" "}
@@ -57,9 +62,32 @@ function EventPage() {
               <p>
                 <strong>Attendees:</strong> {event.attendees}
               </p>
-              <p>
-                <strong>Organized by Club ID:</strong> {event.club_id}
-              </p>
+
+              {/* ✅ Participate Button */}
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSfkYPdX7eIJCyv7-4DBQny8GHLskcw-Ajpll5PEAaniLv8e6Q/viewform"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: "inline-block",
+                  marginTop: "15px",
+                  padding: "10px 20px",
+                  backgroundColor: "#4f46e5",
+                  color: "#fff",
+                  borderRadius: "8px",
+                  textDecoration: "none",
+                  fontWeight: "bold",
+                  transition: "background 0.3s",
+                }}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.backgroundColor = "#4338ca")
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.backgroundColor = "#4f46e5")
+                }
+              >
+                Participate 🚀
+              </a>
             </div>
           ))}
         </div>
