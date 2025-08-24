@@ -19,6 +19,7 @@ import Information from "./components/Information";
 import ManageUsers from "./components/ManageUsers";
 import CreateEvent from "./views/CreateEvent";
 import About from "./components/About";
+import PrivateRoute from "./components/PrivateRoute";
 
 
 
@@ -33,6 +34,33 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/featured" element={<h1>Featured Page</h1>} />
+
+          {/* Protected Admin Routes */}
+          <Route
+            path="/admin-dashboard"
+            element={
+              <PrivateRoute>
+                <AdminDashboard />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/admin/manage-users"
+            element={
+              <PrivateRoute>
+                <ManageUsers />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/admin/create-event"
+            element={
+              <PrivateRoute>
+                <CreateEvent />
+              </PrivateRoute>
+            }
+          />
+          
           <Route path="/admin" element={<AdminLogin />} />
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
           <Route path="/login" element={<Login />} />
@@ -47,7 +75,7 @@ function App() {
           <Route path="/images/:eventId" element={<EventImages />} />
           <Route path="/" element={<h1>Welcome to Eventify 🎉</h1>} />
           <Route path="/events" element={<EventPage />} />
-          <Route path="/manage-users" element={<ManageUsers />} />
+          <Route path="/admin/manage-users" element={<ManageUsers />} />
           <Route path="/admin/create-event" element={<CreateEvent />} />
         </Routes>
       </main>
