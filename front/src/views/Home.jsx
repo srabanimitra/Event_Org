@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import banner from "../assets/images/banner.jpg"; // ✅ import
 import "./Home.css";
+import ChatBot from "../views/ChatBot";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
           <Link to="/login" className="btn btn-outline">Login</Link>
         </div>
       </section>
+      <ChatBot />
     </div>
   );
 }
