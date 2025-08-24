@@ -1,7 +1,7 @@
 // Contact.jsx
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "./Contact.css";
+import "./contact.css";
 
 const Contact = () => {
   const navigate = useNavigate();
