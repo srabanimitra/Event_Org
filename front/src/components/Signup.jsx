@@ -10,7 +10,9 @@ const Signup = () => {
   const [name, setName] = useState("");
   const [emailValue, setEmail] = useState("");
   const [passwordValue, setPassword] = useState("");
-
+  const [mobile, setMobile] = useState("");
+  const [address, setAddress] = useState("");
+  const [interests, setInterests] = useState("");
   const handleSignup = async () => {
     if (!emailValue.includes("@")) {
       alert("Invalid email!");
@@ -31,6 +33,9 @@ const Signup = () => {
           name: name,
           email: emailValue,
           password: passwordValue,
+          mobile: mobile,
+          address: address,
+          interests: interests,
         }),
       });
 
@@ -85,6 +90,31 @@ const Signup = () => {
             type="password"
             value={passwordValue}
             onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <div className="input">
+          <input
+            placeholder="Mobile Number"
+            type="text"
+            value={mobile}
+            onChange={(e) => setMobile(e.target.value)}
+          />
+        </div>
+        <div className="input">
+          <input
+            placeholder="Address"
+            type="text"
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
+          />
+        </div>
+
+        <div className="input">
+          <input
+            placeholder="Interests (comma separated)"
+            type="text"
+            value={interests}
+            onChange={(e) => setInterests(e.target.value)}
           />
         </div>
       </div>
