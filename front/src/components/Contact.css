@@ -62,3 +62,40 @@ html, body {
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+
+/* Existing code remains the same... */
+
+@media (max-width: 900px) {
+  .contact-box {
+    width: 500px;
+    padding: 30px;
+  }
+  .contact-box h1 {
+    font-size: 1.8rem;
+  }
+  .contact-box p {
+    font-size: 1rem;
+  }
+  .contact-box button {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .contact-box {
+    width: 90%;
+    padding: 20px;
+  }
+  .contact-box h1 {
+    font-size: 1.5rem;
+  }
+  .contact-box p {
+    font-size: 0.9rem;
+  }
+  .contact-box button {
+    font-size: 0.8rem;
+    padding: 8px 16px;
+  }
+}
+
