@@ -13,6 +13,7 @@ const sponsors = [
 
 export default function Sponsor() {
   return (
+    <div className="sponsor-page">
     <div className="sponsor-container">
       <h1>Our Valued Partners</h1>
       <p className="sponsor-intro">
@@ -28,6 +29,7 @@ export default function Sponsor() {
           ))}
         </div>
       </div>
+    </div>
     </div>
   );
 }
