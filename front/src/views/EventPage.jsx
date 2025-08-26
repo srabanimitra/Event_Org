@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./eventPage.css";
-
+import "./Events.css";
 function EventPage() {
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
