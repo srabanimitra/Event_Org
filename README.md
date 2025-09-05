@@ -2,11 +2,11 @@
 HACKATHON PROJECT: Eventify - University Club Event Management Platform
 
 ## Team Members
-| Name                | Roll Number   | Email                                   | Role                             |
-|---------------------|---------------|-----------------------------------------|----------------------------------|
-| Srabani Mitra      | 20220104111   |srabanimitra2222@gmail.com              | Lead,Backend          |
-| Nusrat Adiba       | 20220104113   | nusratadiba06@gmail.com                | Backend, Frontend     |
-| Israt Jahan Minm   | 20220104137   |  israt.cse.20220105137@aust.edu            | Backend, Frontend     |
+| Name                | Roll Number   | Email                                   | Role                  |
+|---------------------|---------------|-----------------------------------------|-----------------------|
+| Srabani Mitra       | 20220104111   | srabanimitra2222@gmail.com              | Lead,Backend          |
+| Nusrat Adiba        | 20220104113   | nusratadiba06@gmail.com                 | Backend, Frontend     |
+| Ishrat Jahan Mim    | 20220104137   | ishratjahanmim2624@gmail.com            | Backend, Frontend     |
 
 ## Project Overview
 "Eventify" — an event management portal specially designed
